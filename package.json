@@ -1,0 +1,23 @@
+{
+  "name": "learningtypescript",
+  "version": "1.0.0",
+  "description": "Learning typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amber-Robeck/learningTypescript.git"
+  },
+  "author": "Amber Robeck",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Amber-Robeck/learningTypescript/issues"
+  },
+  "homepage": "https://github.com/Amber-Robeck/learningTypescript#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
