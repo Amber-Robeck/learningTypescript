@@ -1,6 +1,7 @@
 //When writing a specific outDir in tcconfig, can't run the file directly on terminal or it compiles file to same folder, use tsc--watch instead
 
 
+
 //Start game button
 //Create table dynamically
 //Fill table with array of words
@@ -13,22 +14,37 @@
 //Hints....
 
 
-const startButton = document.querySelector(".start")!;
-const game = document.querySelector(".game")!;
-let words = ["one", "two", "three"];
+window.onload = function () {
+    let gameSpace = document.createElement("div");
+    gameSpace.setAttribute("class", "game");
+    let hello = document.createElement("p");
+    hello.innerText = "Hello friends";
+    let startB = document.createElement("button");
+    startB.setAttribute("class", "start");
+    startB.innerText = "Start";
+    startB.onclick = startGame;
+    gameSpace.appendChild(hello);
+    gameSpace.appendChild(startB);
+    document.body.appendChild(gameSpace);
+    console.log('page is fully loaded');
+};
 
-startButton.addEventListener('click', function () {
+
+let words = ["one", "two", "three"];
+const startGame = function () {
     console.log("started game");
     createTable();
     displayWords();
-
+    const startButton = document.querySelector(".start")!;
     startButton.setAttribute("style", "display: none;")
-});
+}
+
 
 //variable for row/column in table
 const block = 8;
 
 const createTable = function () {
+    const game = document.querySelector(".game")!;
     let table = document.createElement("table");
     let tableRow;
     let tableData;
