@@ -10,18 +10,32 @@
 //Would like to strikethrough word on list when user finds word
 //End game function
 //Hints....
-const startButton = document.querySelector(".start");
-const game = document.querySelector(".game");
+window.onload = function () {
+    let gameSpace = document.createElement("div");
+    gameSpace.setAttribute("class", "game");
+    let hello = document.createElement("p");
+    hello.innerText = "Hello friends";
+    let startB = document.createElement("button");
+    startB.setAttribute("class", "start");
+    startB.innerText = "Start";
+    startB.onclick = startGame;
+    gameSpace.appendChild(hello);
+    gameSpace.appendChild(startB);
+    document.body.appendChild(gameSpace);
+    console.log('page is fully loaded');
+};
 let words = ["one", "two", "three"];
-startButton.addEventListener('click', function () {
+const startGame = function () {
     console.log("started game");
     createTable();
     displayWords();
+    const startButton = document.querySelector(".start");
     startButton.setAttribute("style", "display: none;");
-});
+};
 //variable for row/column in table
 const block = 8;
 const createTable = function () {
+    const game = document.querySelector(".game");
     let table = document.createElement("table");
     let tableRow;
     let tableData;
