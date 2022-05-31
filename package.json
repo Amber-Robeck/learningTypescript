@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "lite-server"
+    "start": "lite-server",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/Amber-Robeck/learningTypescript#readme",
   "devDependencies": {
+    "gh-pages": "^4.0.0",
     "lite-server": "^2.6.1"
   }
 }
