@@ -2,19 +2,25 @@
 
 
 
-//Start game button
-//Create table dynamically
+//Start game button--check
+//Create table dynamically--check
 //Fill table with array of words
 //Create list of words on page so user knows what to look for
 //Connect them by similar letters if length left is long enough
-//Fill in rest of empty blocks with random letter
+//Fill in rest of empty blocks with random letter--check currently filling all blocks
 //User strikethrough for words found
 //Would like to strikethrough word on list when user finds word
 //End game function
 //Hints....
+let words = ["one", "two", "three"];
 
 
 window.onload = function () {
+    createDiv();
+    console.log('page is fully loaded');
+};
+
+const createDiv = function () {
     let gameSpace = document.createElement("div");
     gameSpace.setAttribute("class", "game");
     let hello = document.createElement("p");
@@ -26,21 +32,23 @@ window.onload = function () {
     gameSpace.appendChild(hello);
     gameSpace.appendChild(startB);
     document.body.appendChild(gameSpace);
-    console.log('page is fully loaded');
 };
 
-
-let words = ["one", "two", "three"];
 const startGame = function () {
     console.log("started game");
     createTable();
-    displayWords();
+    fillEmpty();
+    hideButton();
+};
+
+const hideButton = function () {
     const startButton = document.querySelector(".start")!;
-    startButton.setAttribute("style", "display: none;")
-}
+    startButton.setAttribute("style", "display: none;");
+};
 
 
 //variable for row/column in table
+//had to move game variable to inside function after dynamically creating as querySelector was not able to find dynamically added.
 const block = 8;
 
 const createTable = function () {
@@ -59,8 +67,9 @@ const createTable = function () {
     }
     game.appendChild(table);
 };
+
 //char code *26 returns [ assuming first number counts as one
-const displayWords = function () {
+const fillEmpty = function () {
     for (let td of document.querySelectorAll("td")) {
         if (td.textContent === "") {
             let char = Math.round(65 + Math.random() * 25)
