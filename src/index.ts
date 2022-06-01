@@ -12,7 +12,7 @@
 //Would like to strikethrough word on list when user finds word
 //End game function
 //Hints....
-let words = ["one", "two", "three"];
+let words = ["one", "two", "three", "thirteen", "seventeen"];
 
 
 window.onload = function () {
@@ -78,3 +78,23 @@ const fillEmpty = function () {
     }
 };
 
+const getWords = function (arr: string[]) {
+    console.log(arr);
+    arr.forEach(splitWord);
+};
+function splitWord(value: string, index: number, array: string[]) {
+    console.log("value", value);
+    if (value.length <= block) {
+        let letters = value.split("");
+        console.log(letters)
+    }
+    console.log("index", index);
+    // console.log("array", array);
+}
+
+// var string = "words";
+// for (var i = 0; i < string.length; i++) {
+//     console.log(string.charAt(i));
+// }
+
+getWords(words);
