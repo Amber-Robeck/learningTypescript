@@ -37,8 +37,9 @@ const createDiv = function () {
 const startGame = function () {
     console.log("started game");
     createTable();
-    fillEmpty();
     hideButton();
+    getWords(words);
+    fillEmpty();
 };
 
 const hideButton = function () {
@@ -82,19 +83,63 @@ const getWords = function (arr: string[]) {
     console.log(arr);
     arr.forEach(splitWord);
 };
-function splitWord(value: string, index: number, array: string[]) {
-    console.log("value", value);
-    if (value.length <= block) {
-        let letters = value.split("");
-        console.log(letters)
-    }
-    console.log("index", index);
-    // console.log("array", array);
-}
+// function splitWord(value: string, index: number, array: string[]) {
+//     const tableD = document.querySelectorAll("td")!;
+//     console.log("value", value);
+//     if (value.length <= block) {
+//         let letters = value.split("");
+//         console.log(letters)
 
-// var string = "words";
-// for (var i = 0; i < string.length; i++) {
-//     console.log(string.charAt(i));
+//         // ["o","n","e"]
+//         for (var i = 0; i < tableD.length; i++) {
+//             console.log("for index", i)
+//             // console.log("before innerif", tableD)
+//             // 1table 
+//             if (tableD[i].innerText === "") {
+
+//                 for (var l = 0; l < letters.length; l++) {
+//                     tableD[i].innerText = letters[l].toUpperCase();
+//                     // console.log("before index", tableD)
+//                     // console.log("after index", tableD)
+//                     //if return index here it returns first of every letter
+//                     console.log("l", l)
+//                 };
+//                 // if return index here last of every letter
+//                 // return
+//             }
+//         }
+//     }
+//     // return index++;
+
+//     // console.log("index", index);
+//     // console.log("array", array);
 // }
 
-getWords(words);
+
+// What a mess :) Callback for getwords forEach
+// If current word/value is less than block variable split into letters array
+// For each letter of letters loop through table data and if empty input letter into table data
+// Need to break after condition is met or it will just produce first letter of letters for all and no other conditions will be met
+function splitWord(value: string, index: number, array: string[]) {
+    const tableD = document.querySelectorAll("td")!;
+    // console.log("value", value);
+    if (value.length <= block) {
+        let letters = value.split("");
+        // console.log(letters)
+        for (var l = 0; l < letters.length; l++) {
+            console.log("letters length", letters.length)
+            for (var i = 0; i < tableD.length; i++) {
+                console.log("for index", i)
+                console.log("innertext", tableD[i].innerText)
+                if (tableD[i].innerText !== "") {
+                } else {
+                    console.log("l index", l)
+                    tableD[i].innerText = letters[l].toUpperCase();
+                    break
+                };
+            };
+        };
+    };
+    // console.log("index", index);
+    // console.log("array", array);
+};
