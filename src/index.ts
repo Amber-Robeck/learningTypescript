@@ -83,38 +83,6 @@ const getWords = function (arr: string[]) {
     console.log(arr);
     arr.forEach(splitWord);
 };
-// function splitWord(value: string, index: number, array: string[]) {
-//     const tableD = document.querySelectorAll("td")!;
-//     console.log("value", value);
-//     if (value.length <= block) {
-//         let letters = value.split("");
-//         console.log(letters)
-
-//         // ["o","n","e"]
-//         for (var i = 0; i < tableD.length; i++) {
-//             console.log("for index", i)
-//             // console.log("before innerif", tableD)
-//             // 1table 
-//             if (tableD[i].innerText === "") {
-
-//                 for (var l = 0; l < letters.length; l++) {
-//                     tableD[i].innerText = letters[l].toUpperCase();
-//                     // console.log("before index", tableD)
-//                     // console.log("after index", tableD)
-//                     //if return index here it returns first of every letter
-//                     console.log("l", l)
-//                 };
-//                 // if return index here last of every letter
-//                 // return
-//             }
-//         }
-//     }
-//     // return index++;
-
-//     // console.log("index", index);
-//     // console.log("array", array);
-// }
-
 
 // What a mess :) Callback for getwords forEach
 // If current word/value is less than block variable split into letters array
@@ -131,8 +99,7 @@ function splitWord(value: string, index: number, array: string[]) {
             for (var i = 0; i < tableD.length; i++) {
                 console.log("for index", i)
                 console.log("innertext", tableD[i].innerText)
-                if (tableD[i].innerText !== "") {
-                } else {
+                if (tableD[i].innerText === "") {
                     console.log("l index", l)
                     tableD[i].innerText = letters[l].toUpperCase();
                     break
